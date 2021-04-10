@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Todo;
 use Illuminate\Http\Request;
 
-class TodoController extends Controller
+class todoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,7 @@ class TodoController extends Controller
     {
         $todos = Todo::all();
 
-        return view('todo.index', compact('todos'));
+        return view('todos.index', compact('todo'));
     }
 
     /**
@@ -26,7 +26,7 @@ class TodoController extends Controller
      */
     public function create()
     {
-        return view('todo.create');
+        return view('todos.create');
     }
 
     /**
@@ -37,13 +37,13 @@ class TodoController extends Controller
      */
     public function store(Request $request)
     {
-        $todo = new Todo();
-        $todo->title = $request->input('title');
-        $todo->save();
+        $todos = new todos();
+        $todos->title = $request->input('title');
+        $todos->save();
 
         return redirect('todos')->with(
             'status',
-            $todo->title . 'を登録しました!'
+            $todos->title . 'を登録しました!'
         );
     }
 
@@ -55,9 +55,9 @@ class TodoController extends Controller
      */
     public function show($id)
     {
-        $todo = Todo::find($id);
+        $todos = todos::find($id);
 
-        return view('todo.show', compact('todo'));
+        return view('todos.show', compact('todos'));
     }
 
     /**
@@ -68,9 +68,9 @@ class TodoController extends Controller
      */
     public function edit($id)
     {
-        $todo = Todo::find($id);
+        $todos = todos::find($id);
 
-        return view('todo.edit', compact('todo'));
+        return view('todos.edit', compact('todos'));
     }
 
     /**
@@ -82,14 +82,14 @@ class TodoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $todo = Todo::find($id);
+        $todos = todos::find($id);
 
-        $todo->title = $request->input('title');
-        $todo->save();
+        $todos->title = $request->input('title');
+        $todos->save();
 
         return redirect('todos')->with(
             'status',
-            $todo->title . 'を更新しました!'
+            $todos->title . 'を更新しました!'
         );
     }
 
@@ -101,12 +101,12 @@ class TodoController extends Controller
      */
     public function destroy($id)
     {
-        $todo = Todo::find($id);
-        $todo->delete();
+        $todos = todos::find($id);
+        $todos->delete();
 
         return redirect('todos')->with(
             'status',
-            $todo->title . 'を削除しました!'
+            $todos->title . 'を削除しました!'
         );
     }
 }

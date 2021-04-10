@@ -11,11 +11,11 @@
                     <tbody>
                         <tr>
                             <th>id</th>
-                            <td>{{$todo->id}}</td>
+                            <td>{{$todos->id}}</td>
                         </tr>
                         <tr>
                             <th>title</th>
-                            <td>{{$todo->title}}</td>
+                            <td>{{$todos->title}}</td>
                         </tr>
                     </tbody>
                 </table>

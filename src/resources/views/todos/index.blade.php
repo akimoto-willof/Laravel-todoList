@@ -24,14 +24,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($todos as $todo)
+                        @foreach($todos as $todos)
                         <tr>
-                            <td>{{ $todo->id }}</td>
-                            <td>{{ $todo->title }}</td>
-                            <td><a href="{{ url('todos/' . $todo->id) }}" class="btn btn-info">詳細</a></td>
-                            <td><a href="{{ url('todos/' . $todo->id . '/edit') }}" class="btn btn-primary">編集</a></td>
+                            <td>{{ $todos->id }}</td>
+                            <td>{{ $todos->title }}</td>
+                            <td><a href="{{ url('todos/' . $todos->id) }}" class="btn btn-info">詳細</a></td>
+                            <td><a href="{{ url('todos/' . $todos->id . '/edit') }}" class="btn btn-primary">編集</a></td>
                             <td>
-                                <form method="POST" action="/todos/{{ $todo->id }}">
+                                <form method="POST" action="/todos/{{ $todos->id }}">
                                     @csrf
                                     @method('DELETE')
                                     <button class="btn btn-danger" type="submit">削除</button>

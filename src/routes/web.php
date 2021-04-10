@@ -11,14 +11,16 @@
 |
 */
 
-Route::get('todos', function () {
-    return view('TodoController@index');
-});
+// Route::get('/', function () {
+//     return view('todosController@index');
+// });
 
-Route::get('todos','TodoController@index');
-Route::get('todos/create','TodoController@create');
-Route::post('todos','TodoController@store');
-Route::get('todos/{id}','TodoController@show');
-Route::get('todos/{id}/edit','TodoController@edit');
-Route::put('todos/{id}','TodoController@update');
-Route::delete('todos/{id}','TodoController@destroy');
+Route::get('/','todoController@index');
+
+Route::get('/todos/index','todoController@index');
+Route::get('/todos/create','todoController@create');
+Route::post('/todos/index','todoController@store');
+Route::get('/todos/{id}','todoController@show');
+Route::get('/todos/{id}/edit','todoController@edit');
+Route::put('/todos/{id}','todoController@update');
+Route::delete('/todos/{id}','todoController@destroy');
